@@ -19,6 +19,3 @@
 [submodule "utils/stop-machine"]
 	path = utils/stop-machine
 	url = https://github.com/satoru-takeuchi/stop-machine.git
-[submodule "kernfs/lib/ioat-dma-kernel-module"]
-	path = kernfs/lib/ioat-dma-kernel-module
-	url = https://github.com/casys-kaist/LineFS-ioat-dma-kernel-module.git
