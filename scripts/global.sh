@@ -1,15 +1,15 @@
 #!/bin/bash
 ## Set paths in X86 host.
-PROJ_DIR="/path/to/proj_root/in/x86/host" ### Project root directory path in x86 host.
+PROJ_DIR="/opt/LineFS/LineFS_x86" ### Project root directory path in x86 host.
 SIGNAL_DIR="$PROJ_DIR/scripts/signals"
 KERNFS_SIGNAL_DIR="$SIGNAL_DIR/kernfs"
 FORMAT_SIGNAL_DIR="$SIGNAL_DIR/mkfs"
-NIC_SRC_DIR="/path/to/arm/source/code/in/x86/host" ### Path of the host directory that includes source code for NIC.
+NIC_SRC_DIR="/opt/LineFS/LineFS_ARM" ### Path of the host directory that includes source code for NIC.
 SIGNAL_DIR_ARM="$NIC_SRC_DIR/scripts/signals"
 KERNFS_SIGNAL_DIR_ARM="$SIGNAL_DIR_ARM/nicfs"
 
 ## Set paths in ARM.
-NIC_PROJ_DIR="/path/to/proj_root/in/nic" ### Project root directory path in SmartNIC.
+NIC_PROJ_DIR="/home/ubuntu/LineFS_ARM" ### Project root directory path in SmartNIC.
 NIC_SIGNAL_DIR="$NIC_PROJ_DIR/scripts/signals"
 NICFS_SIGNAL_DIR="$NIC_SIGNAL_DIR/kernfs"
 
