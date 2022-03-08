@@ -27,9 +27,9 @@ HOST_2="libra08"
 HOST_3="libra09"
 
 # Hostname (or IP address) of host machines. You should be able to ssh to each machine with these names.
-HOST_1_INF="libra06"
-HOST_2_INF="libra08"
-HOST_3_INF="libra09"
+HOST_1_INF="10.10.2.1"
+HOST_2_INF="10.10.2.2"
+HOST_3_INF="10.10.2.3"
 
 # Hostnames of NICs
 # You can get this values by running `hostname` command on each NIC.
@@ -38,9 +38,9 @@ NIC_2="libra08-nic"
 NIC_3="libra09-nic"
 
 # Name (or IP address) of RDMA interface of NICs. You should be able to ssh to each NIC with these names.
-NIC_1_INF="libra06-nic-rdma"
-NIC_2_INF="libra08-nic-rdma"
-NIC_3_INF="libra09-nic-rdma"
+NIC_1_INF="10.10.2.101"
+NIC_2_INF="10.10.2.102"
+NIC_3_INF="10.10.2.103"
 
 # Set tty for output. You can find the number X (/dev/pts/X) with the command: `tty`
 HOST_1_TTY=33
