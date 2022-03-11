@@ -3,8 +3,8 @@
 
 # basic.
 # export NET_INTERFACE_NAME="enp175s0f1"
-export X86_NET_INTERFACE_NAME='enp59s0f0'
-export ARM_NET_INTERFACE_NAME='enp3s0f0'
+export X86_NET_INTERFACE_NAME='enp129s0f0'
+export ARM_NET_INTERFACE_NAME='p0'
 export PORT_NUM='12345'
 export LOW_LATENCY_PORT_NUM='12346'
 export PERSIST_NVM=1

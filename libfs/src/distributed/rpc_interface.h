@@ -88,7 +88,7 @@ static inline void set_self_ip(void)
 	fetch_intf_ip(mlfs_conf.x86_net_interface_name, g_self_ip);
 	printf("ip address on interface \'%s\' is %s\n",
 	       mlfs_conf.x86_net_interface_name, g_self_ip);
-#endif
+#endif4
 }
 
 static inline void set_self_node_id(void)

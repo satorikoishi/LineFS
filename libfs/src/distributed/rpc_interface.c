@@ -192,12 +192,12 @@ void tcp_client_req_sb(int sock_fd, char *data, int dev)
     pr_setup("Client received resp: superblock: dev %d size %lu nblocks %lu ninodes %u nlog %lu\n"
                     "\t[inode start %lu bmap start %lu datablock start %lu log start %lu]\n",
                     dev,
-                    sb->size, 
-                    sb->ndatablocks, 
+                    sb->size,
+                    sb->ndatablocks,
                     sb->ninodes,
                     sb->nlog,
-                    sb->inode_start, 
-                    sb->bmap_start, 
+                    sb->inode_start,
+                    sb->bmap_start,
                     sb->datablock_start,
                     sb->log_start);
 }
@@ -212,14 +212,14 @@ void tcp_client_req_root_inode(int sock_fd, char *data)
     di = (struct dinode*)data;
     mlfs_info("Client received resp: dinode: "
             "\t[ itype %d nlink %d size %lu atime %ld.%06ld ctime %ld.%06ld mtime %ld.%06ld ]\n",
-                    di->itype, 
-                    di->nlink, 
+                    di->itype,
+                    di->nlink,
                     di->size,
-                    di->atime.tv_sec, 
-                    di->atime.tv_usec, 
-                    di->ctime.tv_sec, 
-                    di->ctime.tv_usec, 
-                    di->mtime.tv_sec, 
+                    di->atime.tv_sec,
+                    di->atime.tv_usec,
+                    di->ctime.tv_sec,
+                    di->ctime.tv_usec,
+                    di->mtime.tv_sec,
                     di->mtime.tv_usec);
 }
 
@@ -643,7 +643,7 @@ struct rpc_pending_io * rpc_remote_read_async(char *path, loff_t offset, uint32_
 
 	//setting msg->id allows us to insert a hook in the rdma driver to later wait until response received
 	if(rpc_wait)
-		msg->id = generate_rpc_seqn(g_rpc_socks[sockfd]); 
+		msg->id = generate_rpc_seqn(g_rpc_socks[sockfd]);
 
 	// FIXME: Use inum instead of path for read RPCs
 	// temporarily trimming paths to reduce overheads
@@ -666,7 +666,7 @@ int rpc_remote_read_sync(char *path, loff_t offset, uint32_t io_size, uint8_t *d
 {
 	assert(g_n_cold_bkp > 0); //remote reads are only sent to reserve replicas
 
-	int sockfd = cold_backups[0].sockfd[SOCK_IO]; 
+	int sockfd = cold_backups[0].sockfd[SOCK_IO];
 	//note: for signaling on the fast path, we write directly to the rdma buffer to avoid extra copying
 	struct app_context *msg;
 	int buffer_id = rc_acquire_buffer(sockfd, &msg);
