@@ -1,7 +1,7 @@
 # options are copied from mlfs_conf.sh
 
-set environment X86_NET_INTERFACE_NAME=enp59s0f0
-set environment ARM_NET_INTERFACE_NAME=enp3s0f0
+set environment X86_NET_INTERFACE_NAME=enp129s0f0
+set environment ARM_NET_INTERFACE_NAME=p0
 set environment PORT_NUM=12345
 set environment LOW_LATENCY_PORT_NUM=12346
 set environment PERSIST_NVM=1
@@ -56,8 +56,8 @@ set environment REQUEST_RATE_LIMIT_THRESHOLD=500
 set environment PREFETCH_DATA_CAP=2500	# Prefetch data cap in MB.
 
 # For experiment
-set environment X86_SIGNAL_PATH=/path/to/signal/directory/in/x86
-set environment ARM_SIGNAL_PATH=/path/to/signal/directory/in/arm
+set environment X86_SIGNAL_PATH=/opt/LineFS/LineFS_x86/signals
+set environment ARM_SIGNAL_PATH=/home/ubuntu/LineFS_ARM/signals
 set environment DIGEST_NOOP=0	# Not supported in NIC-offloading setup.
 set environment HYPERLOOP_OPS_FILE_PATH=/home/yulistic/assise-host-only/libfs/lib/hyperloop/trace/micro/latency/sw.1g.4K
 

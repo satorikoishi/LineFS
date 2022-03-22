@@ -22,9 +22,9 @@ fi
 
 # Hostnames of X86 hosts.
 # You can get this values by running `hostname` command on each X86 host.
-HOST_1="libra06"
-HOST_2="libra08"
-HOST_3="libra09"
+HOST_1="node0.jinwei-120159.bfkvs-pg0.clemson.cloudlab.us"
+HOST_2="node1.jinwei-120159.bfkvs-pg0.clemson.cloudlab.us"
+HOST_3="node2.jinwei-120159.bfkvs-pg0.clemson.cloudlab.us"
 
 # Hostname (or IP address) of host machines. You should be able to ssh to each machine with these names.
 HOST_1_INF="10.10.2.1"
@@ -33,9 +33,9 @@ HOST_3_INF="10.10.2.3"
 
 # Hostnames of NICs
 # You can get this values by running `hostname` command on each NIC.
-NIC_1="libra06-nic"
-NIC_2="libra08-nic"
-NIC_3="libra09-nic"
+NIC_1="localhost.localdomain"
+NIC_2="localhost.localdomain"
+NIC_3="localhost.localdomain"
 
 # Name (or IP address) of RDMA interface of NICs. You should be able to ssh to each NIC with these names.
 NIC_1_INF="10.10.2.101"

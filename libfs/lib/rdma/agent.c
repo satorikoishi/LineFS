@@ -293,7 +293,7 @@ static void handle_completion(struct ibv_wc *wc, int low_lat)
 #endif
 
 		//Immediate completions can serve as ACKs or messages
-		if(wc->opcode == IBV_WC_RECV_RDMA_WITH_IMM) { 
+		if(wc->opcode == IBV_WC_RECV_RDMA_WITH_IMM) {
 			uint32_t app_id = ntohl(wc->imm_data);
 			debug_print("application callback: seqn = %u (%x)\n", app_id, app_id);
 
@@ -325,7 +325,7 @@ static void handle_completion(struct ibv_wc *wc, int low_lat)
 
 #if 0
 			//if all local memory region keys haven't yet been synced, send the next
-			if(!mr_all_sent(ctx)) {	
+			if(!mr_all_sent(ctx)) {
 				int send_i = create_message(id, MSG_MR, 0);
 				send_message(id, send_i);
 				printf("%s", "SEND --> MSG_MR\n");
