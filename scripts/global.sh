@@ -22,14 +22,14 @@ fi
 
 # Hostnames of X86 hosts.
 # You can get this values by running `hostname` command on each X86 host.
-HOST_1="node0.jinwei-120159.bfkvs-pg0.clemson.cloudlab.us"
-HOST_2="node1.jinwei-120159.bfkvs-pg0.clemson.cloudlab.us"
-HOST_3="node2.jinwei-120159.bfkvs-pg0.clemson.cloudlab.us"
+HOST_1="node0.jinwei-121792.bfkvs-pg0.clemson.cloudlab.us"
+HOST_2="node1.jinwei-121792.bfkvs-pg0.clemson.cloudlab.us"
+HOST_3="node2.jinwei-121792.bfkvs-pg0.clemson.cloudlab.us"
 
 # Hostname (or IP address) of host machines. You should be able to ssh to each machine with these names.
-HOST_1_INF="10.10.2.1"
-HOST_2_INF="10.10.2.2"
-HOST_3_INF="10.10.2.3"
+HOST_1_INF="10.10.3.1"
+HOST_2_INF="10.10.3.2"
+HOST_3_INF="10.10.3.3"
 
 # Hostnames of NICs
 # You can get this values by running `hostname` command on each NIC.
@@ -38,13 +38,13 @@ NIC_2="localhost.localdomain"
 NIC_3="localhost.localdomain"
 
 # Name (or IP address) of RDMA interface of NICs. You should be able to ssh to each NIC with these names.
-NIC_1_INF="10.10.2.101"
-NIC_2_INF="10.10.2.102"
-NIC_3_INF="10.10.2.103"
+NIC_1_INF="10.10.3.101"
+NIC_2_INF="10.10.3.102"
+NIC_3_INF="10.10.3.103"
 
 # Set tty for output. You can find the number X (/dev/pts/X) with the command: `tty`
-HOST_1_TTY=33
-HOST_2_TTY=0
+HOST_1_TTY=0
+HOST_2_TTY=4
 HOST_3_TTY=0
 
 NIC_1_TTY=0

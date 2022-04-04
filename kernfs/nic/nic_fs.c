@@ -679,6 +679,9 @@ static void send_pipeline_kernfs_meta(void)
 
 void init_nic_fs(void)
 {
+    struct rdma_event_channel *g_ec;
+    g_ec = rdma_create_event_channel();
+    printf("The ec is:%p\n",g_ec);
 	int i;
 	const char *perf_profile;
 
@@ -990,7 +993,7 @@ void init_nic_fs(void)
 	init_rate_limiter();
 	thpool_add_work(thread_pool_rate_limiter, rate_limit_worker, NULL);
 #endif
-#ifdef PREFETCH_FLOW_CONTROL 
+#ifdef PREFETCH_FLOW_CONTROL
 	init_prefetch_rate_limiter();
 #endif
 #ifdef BACKUP_RDMA_MEMCPY
