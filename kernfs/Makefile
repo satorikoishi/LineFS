@@ -115,10 +115,10 @@ else
 endif
 
 ### Debug options.
-# DEBUG = -g -Og
+ DEBUG = -g -Og
 # DEBUG = -g -O0 -DNO_COMPILETIME_ASSERT_IN_ARM  # Use it when -g -Og fails.
 # DEBUG = -g3 -Ofast
-DEBUG = -O3
+# DEBUG = -O3
 ################################################################################
 
 ifeq (,$(filter $(SYS), aarch64-linux-gnu))

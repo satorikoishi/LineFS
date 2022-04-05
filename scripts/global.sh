@@ -34,8 +34,8 @@ HOST_3_INF="10.10.3.3"
 # Hostnames of NICs
 # You can get this values by running `hostname` command on each NIC.
 NIC_1="localhost.localdomain"
-NIC_2="localhost.localdomain"
-NIC_3="localhost.localdomain"
+NIC_2="localhost"
+NIC_3="localhost"
 
 # Name (or IP address) of RDMA interface of NICs. You should be able to ssh to each NIC with these names.
 NIC_1_INF="10.10.3.101"
