@@ -931,7 +931,7 @@ void init_nic_fs(void)
 			// - disk_sb[g_root_dev].inode_start <<
 			// g_block_size_shift);  // data blocks only.
 #endif
-			break;
+			break;m;l
 		}
 			/*
 			case MR_DRAM_CACHE: {

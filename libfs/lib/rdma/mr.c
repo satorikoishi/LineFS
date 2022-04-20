@@ -1,7 +1,7 @@
 #include "mr.h"
 #include "connection.h"
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 int mr_all_recv(struct conn_context *ctx)
 {
 	if(ctx->remote_mr_total == find_bitmap_weight(ctx->remote_mr_ready,
@@ -11,7 +11,7 @@ int mr_all_recv(struct conn_context *ctx)
 		return 0;
 }
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 int mr_all_sent(struct conn_context *ctx)
 {
 #if 0
@@ -28,7 +28,7 @@ int mr_all_sent(struct conn_context *ctx)
 #endif
 }
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 int mr_all_synced(struct conn_context *ctx)
 {
 	if(mr_all_recv(ctx) && mr_all_sent(ctx))
@@ -37,7 +37,7 @@ int mr_all_synced(struct conn_context *ctx)
 		return 0;
 }
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 int mr_local_ready(struct conn_context *ctx, int mr_id)
 {
 	if(mr_id > MAX_MR)
@@ -49,7 +49,7 @@ int mr_local_ready(struct conn_context *ctx, int mr_id)
 		return 0;
 }
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 int mr_remote_ready(struct conn_context *ctx, int mr_id)
 {
 	if(mr_id > MAX_MR)
@@ -63,7 +63,7 @@ int mr_remote_ready(struct conn_context *ctx, int mr_id)
 
 //FIXME: for now, we just hardcode permissions for memory registration
 // (all provided mrs are given local/remote write permissions)
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 void mr_register(struct conn_context *ctx, struct mr_context *mrs, int num_mrs, int msg_size)
 {
 	// printf("%lu [DRAM_ALLOC] registering %d memory regions & %d send/rcv buffers\n", get_tid(), num_mrs, MAX_BUFFER*2);
@@ -78,14 +78,14 @@ void mr_register(struct conn_context *ctx, struct mr_context *mrs, int num_mrs, 
 		int idx = mrs[i].type;
 		if(idx > MAX_MR-1)
 			rc_die("memory region type outside of MAX_MR");
-		ctx->local_mr[idx] = ibv_reg_mr(rc_get_pd(), (void*)mrs[i].addr, mrs[i].length, 
+		ctx->local_mr[idx] = ibv_reg_mr(rc_get_pd(), (void*)mrs[i].addr, mrs[i].length,
 				IBV_ACCESS_LOCAL_WRITE | IBV_ACCESS_REMOTE_WRITE | IBV_ACCESS_REMOTE_READ);
 		if(!ctx->local_mr[idx]) {
-			debug_print("registeration failed with errno: %d\n", errno);
+			debug_print("registerationWork Request Flushed Error failed with errno: %d\n", errno);
 			rc_die("ibv_reg_mr failed");
 		}
 		ctx->local_mr_ready[idx] = 1;
-		// printf("%lu [DRAM_ALLOC] registered local_mr[addr:%lx, len:%lu, rkey:%u, lkey:%u]\n", get_tid(),
+		// printf("%lu [DRAM_ALLOC] register10.10ed local_mr[addr:%lx, len:%lu, rkey:%u, lkey:%u]\n", get_tid(),
 		debug_print("%lu registered local_mr[addr:%lx, len:%lu, rkey:%u, lkey:%u]\n", get_tid(),
 				(uintptr_t)ctx->local_mr[idx]->addr, ctx->local_mr[idx]->length,
 			       	ctx->local_mr[idx]->rkey, ctx->local_mr[idx]->lkey);
@@ -127,7 +127,7 @@ void mr_register(struct conn_context *ctx, struct mr_context *mrs, int num_mrs, 
 	}
 }
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 void mr_prepare_msg(struct conn_context *ctx, int buffer, int msg_type)
 {
 	int i = buffer;
@@ -147,7 +147,7 @@ void mr_prepare_msg(struct conn_context *ctx, int buffer, int msg_type)
 		rc_die("failed to prepare msg; undefined type");
 }
 
-__attribute__((visibility ("hidden"))) 
+__attribute__((visibility ("hidden")))
 int mr_next_to_sync(struct conn_context *ctx)
 {
 	int idx = ctx->local_mr_to_sync;
@@ -158,7 +158,7 @@ int mr_next_to_sync(struct conn_context *ctx)
 	//find next local_mr_to_sync
 	for(int i=idx+1; i<MAX_MR; i++) {
 		if(ctx->local_mr_ready[i])
-			ctx->local_mr_to_sync = i; 
+			ctx->local_mr_to_sync = i;
 	}
 
 	ctx->local_mr_to_sync = find_next_set_bit(idx, ctx->local_mr_ready, MAX_MR);
@@ -177,7 +177,7 @@ uint64_t mr_local_addr(int sockfd, int mr_id)
 		timeout--;
 		sleep(1);
 	}
-	
+
 	struct rdma_cm_id *id = get_connection(sockfd);
 	struct conn_context *ctx = (struct conn_context *)id->context;
 	while(!mr_local_ready(ctx, mr_id)) {
@@ -202,7 +202,7 @@ uint64_t mr_remote_addr(int sockfd, int mr_id)
 		timeout--;
 		sleep(1);
 	}
-	
+
 	struct rdma_cm_id *id = get_connection(sockfd);
 	struct conn_context *ctx = (struct conn_context *)id->context;
 	while(!mr_remote_ready(ctx, mr_id)) {
